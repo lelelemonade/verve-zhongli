@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 public class IdCountFlushService {
 
     private final IdRepository idRepository;
-    private int lastMinuteIdCount;
+    private long lastMinuteIdCount;
 
     @Autowired
     public IdCountFlushService(IdRepository idRepository) {
@@ -24,7 +24,7 @@ public class IdCountFlushService {
     // default using spring boot built-in simple thread pool which is totally fine
     @Scheduled(cron = "0 * * * * ?")
     public void flush() {
-        int thisMinuteIdCount = idRepository.count();
+        long thisMinuteIdCount = idRepository.count();
         log.info("id count:{}", thisMinuteIdCount - lastMinuteIdCount);
         this.lastMinuteIdCount = thisMinuteIdCount;
     }

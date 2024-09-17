@@ -1,10 +1,12 @@
 package com.verve.verve_zhongli.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 
+@Profile("!extension-2")
 @Repository
 public class MemIdRepository implements IdRepository {
 
@@ -20,7 +22,7 @@ public class MemIdRepository implements IdRepository {
         idCountSet.add(id);
     }
 
-    public int count() {
+    public long count() {
         return idCountSet.size();
     }
 }
