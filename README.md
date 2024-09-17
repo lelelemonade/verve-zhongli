@@ -8,7 +8,7 @@ Homework for Verve Application
 ```shell
 java -jar build/libs/verve-zhongli-0.0.1-SNAPSHOT.jar
 ```
-3. test api using following command
+3. test api using following command, checkout logs in the logs/ directory under jar file directory.
 ```shell
 curl 'http://localhost:8080/api/verve/accept?id=1&&endpoint=icanhazip.com'
 ```
