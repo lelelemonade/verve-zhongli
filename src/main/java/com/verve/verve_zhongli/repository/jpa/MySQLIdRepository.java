@@ -1,12 +1,7 @@
-package com.verve.verve_zhongli.repository;
+package com.verve.verve_zhongli.repository.jpa;
 
-import com.verve.verve_zhongli.repository.jpa.JPARepository;
-import com.verve.verve_zhongli.repository.jpa.VerveId;
+import com.verve.verve_zhongli.repository.IdRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration;
-import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 

@@ -20,6 +20,18 @@
         </filter>
     </appender>
 
+    <appender name="ID_COUNT_KAFKA" class="com.github.danielwegener.logback.kafka.KafkaAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} - %msg%n</pattern>
+        </encoder>
+        <producerConfig>bootstrap.servers=localhost:9092</producerConfig>
+        <topic>verve-id-count-topic</topic>
+        <filter class="com.verve.verve_zhongli.utils.IdCountFlushLogFilter">
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
     <appender name="ERROR_FILE" class="ch.qos.logback.core.FileAppender">
         <file>logs/verve-error.log</file>
         <encoder>
@@ -30,10 +42,20 @@
         </filter>
     </appender>
 
-    <root level="INFO">
-        <appender-ref ref="ID_COUNT_FILE"/>
-        <appender-ref ref="ERROR_FILE"/>
-        <appender-ref ref="DEFAULT"/>
-    </root>
+    <springProfile name="!extension-3">
+        <root level="INFO">
+            <appender-ref ref="ID_COUNT_FILE"/>
+            <appender-ref ref="ERROR_FILE"/>
+            <appender-ref ref="DEFAULT"/>
+        </root>
+    </springProfile>
+
+    <springProfile name="extension-3">
+        <root level="INFO">
+            <appender-ref ref="ID_COUNT_KAFKA"/>
+            <appender-ref ref="ERROR_FILE"/>
+            <appender-ref ref="DEFAULT"/>
+        </root>
+    </springProfile>
 
 </configuration>

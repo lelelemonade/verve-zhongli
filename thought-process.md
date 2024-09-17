@@ -8,7 +8,7 @@ our function requirement need us to record id in memory which is quite efficient
 2. return "failed" in case of any error means global error handling, which Spring Boot Web support well, too.
 
 ### flush last minute unique request count to log file
-1. we need to store processed request id to ensure, deduplication. For basic requirement, just use in-memory HashSet.
+1. we need to store processed request id to ensure deduplication. For basic requirement, just use in-memory HashSet.
 2. we need to implement schedule task to trigger flush every minute.
 3. we need customize standard logger filter to write unique request to log file.
 

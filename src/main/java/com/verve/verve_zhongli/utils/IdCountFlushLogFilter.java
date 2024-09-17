@@ -5,7 +5,7 @@ import ch.qos.logback.core.filter.AbstractMatcherFilter;
 import ch.qos.logback.core.spi.FilterReply;
 import com.verve.verve_zhongli.service.IdCountFlushService;
 
-// highly customizable logback filter to log id count flush log result to specific file
+// highly customized logback filter to log id count flush log result to specific file
 public class IdCountFlushLogFilter extends AbstractMatcherFilter<ILoggingEvent> {
 
     @Override

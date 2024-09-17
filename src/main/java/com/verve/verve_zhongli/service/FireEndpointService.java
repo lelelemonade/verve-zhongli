@@ -8,7 +8,6 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.client.reactive.ReactorClientHttpConnector;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.scheduler.Schedulers;
 import reactor.netty.http.client.HttpClient;
 import reactor.netty.resources.ConnectionProvider;
 
@@ -39,7 +38,7 @@ public class FireEndpointService {
         webClient.method(HttpMethod.valueOf(httpMethod))
                 .uri(endpoint)
                 .exchangeToMono(response -> {
-                    log.info("HTTP Status Code for endpoint: {}, http code: {}", endpoint, response.statusCode().value());
+                    log.info("sending {} http request to endpoint: {}, http response code: {}", httpMethod, endpoint, response.statusCode().value());
 
                     return response.bodyToMono(String.class)
                             .map(body -> {
