@@ -4,7 +4,7 @@ Homework for Verve Application
 # Quick Start
 ## Basic Requirement
 1. download jar file from GitHub release page
-2. run jar using following command 
+2. run jar with JDK17+ using following command 
 ```shell
 java -jar build/libs/verve-zhongli-0.0.1-SNAPSHOT.jar
 ```
